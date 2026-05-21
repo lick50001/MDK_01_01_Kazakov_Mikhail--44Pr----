@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Postavki.Views.Items"
-                                       mc:Ignorable="d"
+             mc:Ignorable="d"
              FontFamily="Bahnschrift Light Condensed">
     <UserControl.Resources>
         <Style TargetType="Button" x:Key="Update">
@@ -27,6 +26,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="270"/>
             </Grid.ColumnDefinitions>
+
             <Grid Margin="10" Height="60" VerticalAlignment="Top" Background="White">
                 <Grid.Effect>
                     <DropShadowEffect Opacity="0.1"/>
@@ -39,6 +39,7 @@
                          VerticalAlignment="Top"
                          Height="25"/>
             </Grid>
+
             <Grid Margin="10, 80, 10, 0" Height="60" VerticalAlignment="Top" Background="White">
                 <Grid.Effect>
                     <DropShadowEffect Opacity="0.1"/>
@@ -51,11 +52,12 @@
                          VerticalAlignment="Top"
                          Height="25"/>
             </Grid>
+
             <Grid Margin="10,10,10,0" Height="60" VerticalAlignment="Top" Background="White" Grid.Column="1">
                 <Grid.Effect>
                     <DropShadowEffect Opacity="0.1"/>
                 </Grid.Effect>
-                <Label Content="Адресс:" VerticalAlignment="Top" Margin="10, 0, 10, 0"/>
+                <Label Content="Адрес:" VerticalAlignment="Top" Margin="10, 0, 10, 0"/>
                 <TextBox Text="{Binding Address}"
                          IsEnabled="{Binding IsEnable}"
                          VerticalContentAlignment="Center"
@@ -64,41 +66,26 @@
                          Height="25"/>
             </Grid>
         </Grid>
+
         <Button Style="{StaticResource Update}"
-                Command="{Binding OnEdit}"
-                Content="{Binding IsEnableText}"
-                Height="25"
-                Width="70"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0,96,31,0">
+        Command="{Binding DataContext.OnSaveSupplier, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}"
+        Content="{Binding IsEnableText}"
+        IsEnabled="{Binding IsEnable}"
+        Height="25" Width="70"
+        VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,96,31,0">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" BlurRadius="3" ShadowDepth="3"/>
             </Button.Effect>
         </Button>
-        <Button Style="{StaticResource Update}"
-                IsEnabled="{Binding IsEnable}"
-                Content="{Binding IsDoneText}"
-                Command="{Binding OnDone}"
-                Height="25"
-                Width="70"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0,96,106,0">
-            <Button.Effect>
-                <DropShadowEffect Opacity="0.5" BlurRadius="3" ShadowDepth="3"/>
-            </Button.Effect>
-        </Button>
-        <Button x:Name="test"
-                Style="{StaticResource Delete}"
-                IsEnabled="{Binding IsEnable}"
-                Command="{Binding OnDelete}"
-                Content="Удалить"
-                Height="25"
-                Width="70"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0,96,181,0">
+
+        <!-- Кнопка "Удалить" -->
+        <Button Style="{StaticResource Delete}"
+        Command="{Binding DataContext.OnDeleteSupplier, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}"
+        Content="Удалить"
+        Height="25" Width="70"
+        VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,96,106,0">
             <Button.Effect>
                 <DropShadowEffect Opacity="0.5" BlurRadius="3" ShadowDepth="3"/>
             </Button.Effect>

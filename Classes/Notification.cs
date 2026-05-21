@@ -11,12 +11,9 @@ namespace Postavki.Classes
     public class Notification : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void onPropertyChanged([CallerMemberName] string prop = "")
+        protected virtual void onPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
