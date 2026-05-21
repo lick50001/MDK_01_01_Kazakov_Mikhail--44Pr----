@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Postavki
+namespace Postavki.Views.Items
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для SupplierItem.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SupplierItem : UserControl
     {
-        public static MainWindow init;
-        public MainWindow()
+        public SupplierItem()
         {
             InitializeComponent();
-            init = this;
-            NavigateTo(new Views.Main());
-        }
-        public void NavigateTo(Page page)
-        {
-            frame.Navigate(page);
         }
     }
 }
