@@ -19,7 +19,9 @@ namespace Postavki.ViewModels
         public RelayCommand<Supplier> OnEditSupplier { get; }
         public RelayCommand<Supplier> OnSaveSupplier { get; }
         public RelayCommand<Supplier> OnDeleteSupplier { get; }
+        public RelayCommand<Supplier> OnToggleEditSupplier { get; }
 
+        public RelayCommand<Order> OnToggleEditOrder { get; }
         public RelayCommand OnAddOrder { get; }
         public RelayCommand<Order> OnEditOrder { get; }
         public RelayCommand<Order> OnSaveOrder { get; }
@@ -33,13 +35,30 @@ namespace Postavki.ViewModels
             OnAddSupplier = new RelayCommand(AddSupplier);
             OnAddOrder = new RelayCommand(AddOrder);
 
-            OnEditSupplier = new RelayCommand<Supplier>(sup => sup.IsEnable = true);
-            OnSaveSupplier = new RelayCommand<Supplier>(SaveSupplier);
+            OnToggleEditSupplier = new RelayCommand<Supplier>(ToggleEditSupplier);
             OnDeleteSupplier = new RelayCommand<Supplier>(DeleteSupplier);
 
-            OnEditOrder = new RelayCommand<Order>(order => order.IsEnable = true);
-            OnSaveOrder = new RelayCommand<Order>(SaveOrder);
+            OnToggleEditOrder = new RelayCommand<Order>(ToggleEditOrder);
             OnDeleteOrder = new RelayCommand<Order>(DeleteOrder);
+        }
+
+        private void ToggleEditSupplier(Supplier sup)
+        {
+            if (sup.IsEnable)
+            {
+                // Сохраняем
+                _db.SaveChanges();
+            }
+            sup.IsEnable = !sup.IsEnable;
+        }
+
+        private void ToggleEditOrder(Order order)
+        {
+            if (order.IsEnable)
+            {
+                _db.SaveChanges();
+            }
+            order.IsEnable = !order.IsEnable;
         }
 
         private void LoadData()

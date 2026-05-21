@@ -14,8 +14,6 @@ namespace Postavki.Models
         public int? SupplierId { get; set; }
         public Supplier? Supplier { get; set; }
 
-        [NotMapped]
-        private bool isEnable;
 
         [NotMapped]
         public string IsEnableText
@@ -23,6 +21,7 @@ namespace Postavki.Models
             get => IsEnable ? "Сохранить" : "Изменить";
         }
 
+        private bool isEnable;
         [NotMapped]
         public bool IsEnable
         {

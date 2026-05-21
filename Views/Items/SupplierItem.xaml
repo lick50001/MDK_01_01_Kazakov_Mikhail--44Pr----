@@ -71,7 +71,6 @@
         Command="{Binding DataContext.OnSaveSupplier, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding}"
         Content="{Binding IsEnableText}"
-        IsEnabled="{Binding IsEnable}"
         Height="25" Width="70"
         VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,96,31,0">
             <Button.Effect>

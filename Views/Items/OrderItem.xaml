@@ -93,12 +93,11 @@
             </Grid>
         </Grid>
 
-        <!-- Кнопки -->
+        <!-- Кнопка "Изменить / Сохранить" -->
         <Button Style="{StaticResource Update}"
-        Command="{Binding DataContext.OnSaveOrder, RelativeSource={RelativeSource AncestorType=Page}}"
+        Command="{Binding DataContext.OnEditOrder, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding}"
         Content="{Binding IsEnableText}"
-        IsEnabled="{Binding IsEnable}"
         Height="25" Width="70"
         VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,175,281,0">
             <Button.Effect>
@@ -106,7 +105,7 @@
             </Button.Effect>
         </Button>
 
-        <!-- Кнопка "Удалить" -->
+        <!-- Кнопка "Удалить" — ВСЕГДА активна -->
         <Button Style="{StaticResource Delete}"
         Command="{Binding DataContext.OnDeleteOrder, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding}"
