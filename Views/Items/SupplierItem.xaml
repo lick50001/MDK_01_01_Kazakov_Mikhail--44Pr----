@@ -68,7 +68,7 @@
         </Grid>
 
         <Button Style="{StaticResource Update}"
-        Command="{Binding DataContext.OnSaveSupplier, RelativeSource={RelativeSource AncestorType=Page}}"
+        Command="{Binding DataContext.OnToggleEditSupplier, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding}"
         Content="{Binding IsEnableText}"
         Height="25" Width="70"

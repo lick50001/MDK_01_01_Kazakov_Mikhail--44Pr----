@@ -95,7 +95,7 @@
 
         <!-- Кнопка "Изменить / Сохранить" -->
         <Button Style="{StaticResource Update}"
-        Command="{Binding DataContext.OnEditOrder, RelativeSource={RelativeSource AncestorType=Page}}"
+        Command="{Binding DataContext.OnToggleEditOrder, RelativeSource={RelativeSource AncestorType=Page}}"
         CommandParameter="{Binding}"
         Content="{Binding IsEnableText}"
         Height="25" Width="70"
